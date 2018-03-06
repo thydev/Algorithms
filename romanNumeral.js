@@ -17,5 +17,8 @@ function romanNumeral(num){
     return romanStr;
 }
 console.log(romanNumeral(3966))
+// MMMCMLXVI
 console.log(romanNumeral(363))
+// CCCLXIII
 console.log(romanNumeral(398))
+// CCCXCVIII
