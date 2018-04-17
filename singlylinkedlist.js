@@ -12,18 +12,35 @@ SinglyLinkedList.prototype.addToFront = (val)=>{
     var newnode = new Node(val);
     console.log('add funtion->This is this.head', this.head);
     console.log('new node-->', newnode);
-    if (this.head === undefined){
-        console.log("This suppose to be null: this.head before assigning: ", this.head, ' :----null');
-        this.head = newnode;
-        console.log(this.head, 'This is this.head after assiagned')
-    } else {
-        var currentNote = this.head;
-        console.log(this.head);
-        newnode.next = currentNote;
-        this.head = newnode;
-    }
+    // if (this.head === undefined){
+    //     console.log("This suppose to be null: this.head before assigning: ", this.head, ' :----null');
+    //     this.head = newnode;
+    //     console.log(this.head, 'This is this.head after assiagned')
+    // } else {
+    //     var currentNote = this.head;
+    //     console.log(this.head);
+    //     newnode.next = currentNote;
+    //     this.head = newnode;
+    // }
+    newnode.next = this.head;
+    this.head = newnode;
+    
     return newnode;
 };
+
+SinglyLinkedList.prototype.addToBack = (val) => {
+    var newnode = new Node(val);
+    if (this.head == null) {
+        this.head = newnode;
+    } else {
+        var currentNote = this.head;
+        while(currentNote.next != null){
+            currentNote = currentNote.next
+        }
+        currentNote.next = newnode;
+    }
+};
+
 SinglyLinkedList.prototype.getHead = () =>{
     return this.head;
 };
