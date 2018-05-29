@@ -1,4 +1,5 @@
 
+//Slow
 function rFibonacci(num) {
     // if (num == 0) return 0;
     // if (num == 1) return 1;
@@ -16,6 +17,7 @@ console.log(rFibonacci(5)); // 1 + 2 = 3; 2 + 3 = 5
 console.log(rFibonacci(10));
 console.log(rFibonacci(22));
 
+//fast
 function rFib(num, arr) {
     arr = arr || [0, 1];
     if (arr.length == num + 1) {
@@ -30,7 +32,7 @@ function rFib(num, arr) {
 console.log(rFib(3));
 console.log(rFib(4));
 console.log(rFib(5));
-
+//fast
 function rFib3(num, a=0, b=1) {
     if (num == 0) return 0;
     if (num == 1) return 1;
