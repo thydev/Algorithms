@@ -1,6 +1,6 @@
-//has loop
-//Using track ...
-//One walker and one runner , eventually they will meet.
+// has loop
+// Using track ...
+// One walker and one runner , eventually they will meet.
 
 //start point 
 // assign one runner to the start/head
