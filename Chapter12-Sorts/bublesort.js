@@ -12,8 +12,8 @@ function bublesort(arr) {
                 arr[i - 1] = arr[i]
                 arr[i] = tmp;
             }
-            if (i === arr.length) sortedNum++;
         }
+        sortedNum++;
     }
     return arr;
 }
