@@ -33,6 +33,8 @@ function quickSort(arr, start = 0, end = arr.length - 1) {
     return arr;
 }
 console.log(quickSort([3, 8, 2, 9, 4, 7]));
+console.log(quickSort([31, 18, 22, 9, 34, 37, 3]));
+console.log(quickSort([]));
 // Sudo code
 // do quicksort(arr, start = 0, end = arr.length-1)
 
