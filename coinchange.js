@@ -3,10 +3,10 @@ function coinchange(money) {
     const coinname = ["Quarter", "Dime", "Nickel", "Penny"]
     let coins = [0, 0, 0, 0];
     money *= 100;
-    for(var i = 0; i < 4; i++){
+    for (var i = 0; i < 4; i++) {
         coins[i] = Math.floor(money / coinvalue[i]);
         money %= coinvalue[i];
-        if (coins[i] > 0){
+        if (coins[i] > 0) {
             console.log(coinname[i] + ": " + coins[i]);
         }
     }

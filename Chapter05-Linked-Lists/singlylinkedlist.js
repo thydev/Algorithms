@@ -1,14 +1,13 @@
-
-function Node(val){
+function Node(val) {
     this.value = val;
     this.next = null;
 }
 
-function SinglyLinkedList(){
+function SinglyLinkedList() {
     this.head = null;
 }
 
-SinglyLinkedList.prototype.addToFront = (val)=>{
+SinglyLinkedList.prototype.addToFront = (val) => {
     var newnode = new Node(val);
     console.log('add funtion->This is this.head', this.head);
     console.log('new node-->', newnode);
@@ -24,7 +23,7 @@ SinglyLinkedList.prototype.addToFront = (val)=>{
     // }
     newnode.next = this.head;
     this.head = newnode;
-    
+
     return newnode;
 };
 
@@ -34,14 +33,14 @@ SinglyLinkedList.prototype.addToBack = (val) => {
         this.head = newnode;
     } else {
         var currentNote = this.head;
-        while(currentNote.next != null){
+        while (currentNote.next != null) {
             currentNote = currentNote.next
         }
         currentNote.next = newnode;
     }
 };
 
-SinglyLinkedList.prototype.getHead = () =>{
+SinglyLinkedList.prototype.getHead = () => {
     return this.head;
 };
 
@@ -57,7 +56,7 @@ list1.addToFront("b4BeforeFirst");
 
 var current = list1.getHead();
 console.log(current.value);
-while(current !== null){
+while (current !== null) {
     console.log('take out val', current.value);
     current = current.next;
 }

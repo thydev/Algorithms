@@ -6,7 +6,7 @@ function fibonacci(num) {
         return 1;
     } else {
         var preValues = [1, 1];
-        for(var i = 2; i < num; i++) {
+        for (var i = 2; i < num; i++) {
             var temp = preValues[0] + preValues[1];
             preValues[0] = preValues[1];
             preValues[1] = temp;

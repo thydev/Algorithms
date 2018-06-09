@@ -9,7 +9,7 @@ function highestProfit(arr) {
                 if (tempProfit > (arr[i + 2] - arr[i])) {
                     sumProfit += tempProfit;
                 } else {
-                    sumProfit += (arr[i + 2] - arr[i]); // ????
+                    sumProfit += (arr[i + 2] - arr[i]);
                 }
                 return sumProfit;
             } else {
