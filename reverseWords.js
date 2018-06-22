@@ -1,7 +1,7 @@
 function reverseWords(str) {
   let reverseStr = '';
   let temp = '';
-  for (let i = 0; i < str.length - 1; i++) {
+  for (let i = 0; i < str.length; i++) {
     if (str[i] === ' ') {
       if (reverseStr === '') {
         reverseStr = temp;
@@ -18,3 +18,4 @@ function reverseWords(str) {
 }
 
 console.log(reverseWords('We are living in Seattle'));
+console.log(reverseWords('Software developers are awesome'));
