@@ -58,6 +58,16 @@ class BST {
       this.printAll(node.right);
     }
   }
+
+  printLeft(node = this.root) {
+    if (node) {
+      if (node.left) {
+        console.log(node.left.val);
+      }
+      this.printLeft(node.left);
+      this.printLeft(node.right);
+    }
+  }
 }
 
 // BST.prototype.add = function(val, node = this.root) {
@@ -98,4 +108,7 @@ bst1.add(10);
 bst1.add(6);
 bst1.add(7);
 bst1.add(20);
+console.log(bst1);
 bst1.printAll(bst1.root);
+console.log('=====Left======');
+bst1.printLeft(bst1.root);
