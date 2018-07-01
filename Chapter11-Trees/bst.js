@@ -6,7 +6,7 @@ class Node {
     this.left = null;
     this.right = null;
   }
-
+  // Let node handle all the insert
   add(node) {
     if (node.val > this.val) {
       if (this.right) {
@@ -29,7 +29,7 @@ class BST {
     this.root = null;
   }
 
-  add(val, node) {
+  add(val) {
     const newNode = new Node(val);
     if (this.root === null) {
       this.root = newNode;
@@ -38,17 +38,27 @@ class BST {
 
     this.root.add(newNode);
     return this;
-    // if (!node) {
-    //   node = new Node(val);
-    //   // this.root = node;
-    //   return this;
-    // }
+  }
 
-    // if (val < node.val) {
-    //   this.add(val, node.left);
-    // } else {
-    //   this.add(val, node.right);
-    // }
+  inOrder(node = this.root) {
+    if (!node) return;
+    this.inOrder(node.left);
+    console.log(node.val);
+    this.inOrder(node.right);
+  }
+
+  preOrder(node = this.root) {
+    if (!node) return;
+    console.log(node.val);
+    this.preOrder(node.left);
+    this.preOrder(node.right);
+  }
+
+  postOrder(node = this.root) {
+    if (!node) return;
+    this.postOrder(node.left);
+    this.postOrder(node.right);
+    console.log(node.val);
   }
 
   printAll(node = this.root) {
@@ -70,23 +80,8 @@ class BST {
   }
 }
 
-// BST.prototype.add = function(val, node = this.root) {
-//   console.log(node);
-//   if (!node) {
-//     node = new Node(val);
-//     // this.root = node;
-//     console.log(node);
-//     return this;
-//   }
 
-//   if (val < node.val) {
-//     this.add(val, node.left);
-//   } else {
-//     this.add(val, node.right);
-//   }
-// };
-
-BST.prototype.size = function(node = this.root, count = 0) {
+BST.prototype.size = function (node = this.root, count = 0) {
   if (!node) return count;
   count++;
   count = this.size(node.left, count);
@@ -94,21 +89,22 @@ BST.prototype.size = function(node = this.root, count = 0) {
   return count;
 };
 
-// BST.prototype.printAll = function(node = this.root) {
-//   console.log(node, 'in print');
-//   if (node) {
-//     console.log(node.val);
-//     this.printAll(node.left);
-//     this.printAll(node.right);
-//   }
-// };
 
 let bst1 = new BST();
 bst1.add(10);
 bst1.add(6);
 bst1.add(7);
-bst1.add(20);
+bst1.add(20).add(15).add(13).add(28).add(18).add(4);
 console.log(bst1);
+console.log('======Size=======');
+console.log(bst1.size());
+console.log('=========print all=========');
 bst1.printAll(bst1.root);
 console.log('=====Left======');
 bst1.printLeft(bst1.root);
+console.log('=====In-Ordeer======');
+bst1.inOrder()
+console.log('=====Pre-Ordeer======');
+bst1.preOrder();
+console.log('=====Post-Ordeer======');
+bst1.postOrder();
