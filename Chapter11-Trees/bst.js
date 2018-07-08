@@ -61,13 +61,14 @@ class BST {
     console.log(node.val);
   }
 
-  printAll(node = this.root) {
-    if (node) console.log(node.val, 'in print');
-    if (node) {
-      this.printAll(node.left);
-      this.printAll(node.right);
-    }
-  }
+  // pre-order
+  // printAll(node = this.root) {
+  //   if (node) console.log(node.val, 'in print');
+  //   if (node) {
+  //     this.printAll(node.left);
+  //     this.printAll(node.right);
+  //   }
+  // }
 
   printLeft(node = this.root) {
     if (node) {
@@ -80,8 +81,7 @@ class BST {
   }
 }
 
-
-BST.prototype.size = function (node = this.root, count = 0) {
+BST.prototype.size = function(node = this.root, count = 0) {
   if (!node) return count;
   count++;
   count = this.size(node.left, count);
@@ -89,22 +89,42 @@ BST.prototype.size = function (node = this.root, count = 0) {
   return count;
 };
 
+BST.prototype.contain = function(val, node = this.root) {
+  if (!node) return false;
+  if (node.val === val) {
+    return true;
+  } else if (val > node.val) {
+    return this.contain(val, node.right);
+  } else {
+    return this.contain(val, node.left);
+  }
+  // return false;
+};
 
 let bst1 = new BST();
 bst1.add(10);
 bst1.add(6);
 bst1.add(7);
-bst1.add(20).add(15).add(13).add(28).add(18).add(4);
+bst1
+  .add(20)
+  .add(15)
+  .add(13)
+  .add(28)
+  .add(18)
+  .add(4);
 console.log(bst1);
 console.log('======Size=======');
 console.log(bst1.size());
-console.log('=========print all=========');
-bst1.printAll(bst1.root);
+
 console.log('=====Left======');
 bst1.printLeft(bst1.root);
 console.log('=====In-Ordeer======');
-bst1.inOrder()
+bst1.inOrder();
 console.log('=====Pre-Ordeer======');
 bst1.preOrder();
 console.log('=====Post-Ordeer======');
 bst1.postOrder();
+console.log('=====Contain======');
+console.log(bst1.contain(20));
+console.log(bst1.contain(10));
+console.log(bst1.contain(120));
