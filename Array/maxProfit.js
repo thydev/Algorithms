@@ -67,3 +67,17 @@ var maxProfit = function(prices) {
 console.log('Output', maxProfit([7, 1, 5, 3, 6, 4])); // Output 7
 console.log('Output', maxProfit([1, 2, 3, 4, 5])); // Output 4
 console.log('Output', maxProfit([2, 1, 4, 5, 2, 9, 7])); // Output 11
+
+var maxProfit2 = function(prices) {
+  let result = 0;
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i] > prices[i - 1]) {
+      result += prices[i] - prices[i - 1];
+    }
+  }
+  return result;
+};
+
+console.log('Output', maxProfit2([7, 1, 5, 3, 6, 4])); // Output 7
+console.log('Output', maxProfit2([1, 2, 3, 4, 5])); // Output 4
+console.log('Output', maxProfit2([2, 1, 4, 5, 2, 9, 7])); // Output 11
