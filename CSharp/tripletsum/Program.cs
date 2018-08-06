@@ -40,7 +40,6 @@ namespace tripletsum
                     {
                         if ((arr[i] + arr[j] + arr[k] == 0)) // Show all triplets
                         {
-
                             List<int> ltmp = new List<int>() { arr[i], arr[j], arr[k] };
                             // non-descending  order. (ie, a ≤  b ≤ c)
                             ltmp.Sort();

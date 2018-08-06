@@ -4,8 +4,7 @@ using System.Collections.Generic;
 /*
 Questions
 #2
-Given a binary tree, return the level order traversal of its nodes&#39; values. (ie, from left to right, level by
-level).
+Given a binary tree, return the level order traversal of its nodes&#39; values. (ie, from left to right, level by level).
 For example:
 Given binary tree
 {3,9,20,#,#,15,7},
@@ -72,41 +71,46 @@ namespace bsttraversal
             }
         }
 
-        private List<List<int>> resultLeftRight;
-        public List<List<int>> TraverseLeftRight(Node root)
+        public List<List<int>> NodeByLevel(Node root)
         {
-            resultLeftRight = new List<List<int>>();
-            if (root != null)
+            List<List<int>> result = new List<List<int>>();
+            Queue<Node> q1 = new Queue<Node>();
+            Queue<Node> q2 = new Queue<Node>();
+            q1.Enqueue(root);
+            while (q1.Count > 0 || q2.Count > 0)
             {
-                List<int> tmp = new List<int>();
-                tmp.Add(root.Value);
-                resultLeftRight.Add(tmp);
-                TraverseLeftRightHelper(root);
+                List<int> temp = new List<int>();
+                while (q1.Count > 0)
+                {
+                    var node = q1.Dequeue();
+                    temp.Add(node.Value);
+                    if (node.Left != null)
+                    {
+                        q2.Enqueue(node.Left);
+                    }
+                    if (node.Right != null)
+                    {
+                        q2.Enqueue(node.Right);
+                    }
+                }
+                if (temp.Count > 0) result.Add(temp);
+                temp = new List<int>();
+                while (q2.Count > 0)
+                {
+                    var node = q2.Dequeue();
+                    temp.Add(node.Value);
+                    if (node.Left != null)
+                    {
+                        q1.Enqueue(node.Left);
+                    }
+                    if (node.Right != null)
+                    {
+                        q1.Enqueue(node.Right);
+                    }
+                }
+                if (temp.Count > 0) result.Add(temp);
             }
-            return resultLeftRight;
-        }
-
-        private void TraverseLeftRightHelper(Node root)
-        {
-            if (root == null)
-            {
-                return;
-            }
-            List<int> tmp = new List<int>();
-            if (root.Left != null)
-            {
-                tmp.Add(root.Left.Value);
-            }
-            if (root.Right != null)
-            {
-                tmp.Add(root.Right.Value);
-            }
-            if (tmp.Count > 0)
-            {
-                resultLeftRight.Add(tmp);
-            }
-            TraverseLeftRightHelper(root.Left);
-            TraverseLeftRightHelper(root.Right);
+            return result;
         }
     }
 
@@ -121,10 +125,11 @@ namespace bsttraversal
             bt1.InsertNode(15);
             bt1.InsertNode(12);
             bt1.InsertNode(20);
-
+            bt1.InsertNode(5);
+            bt1.InsertNode(8);
 
             List<List<int>> result = new List<List<int>>();
-            result = bt1.TraverseLeftRight(bt1);
+            result = bt1.NodeByLevel(bt1);
 
             foreach (var item in result)
             {
@@ -134,8 +139,7 @@ namespace bsttraversal
                     System.Console.Write(item2.ToString() + " ");
                 }
             }
+            System.Console.WriteLine();
         }
-
-
     }
 }

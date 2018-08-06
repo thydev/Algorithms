@@ -4,6 +4,7 @@ function validBraces(str) {
     '[': ']',
     '{': '}'
   };
+  
   var orders = [];
   for (var i = 0; i < str.length; i++) {
     if (orders.length === 0) {
