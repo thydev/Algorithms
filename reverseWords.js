@@ -5,6 +5,7 @@ function reverseWords(str) {
     if (str[i] === ' ') {
       if (reverseStr === '') {
         reverseStr = temp;
+        temp = '';
       } else {
         reverseStr += ' ' + temp;
         temp = '';
