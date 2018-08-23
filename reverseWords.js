@@ -18,5 +18,5 @@ function reverseWords(str) {
   return reverseStr;
 }
 
-console.log(reverseWords('We are living in Seattle'));
-console.log(reverseWords('Software developers are awesome'));
+console.log(reverseWords('We are living in Seattle')); // eW eraeW gnivil ni elttaeS
+console.log(reverseWords('Software developers are awesome')); // erawtfoS srepolevederawtfoS era emosewa
